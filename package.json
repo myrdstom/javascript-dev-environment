@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "JavaScript development environment",
   "scripts": {
-    "prestart": "node buildScripts/startMessage.js",
-    "start": "node buildScripts/srcServer.js"
+    "prestart": "babel-node buildScripts/startMessage.js",
+    "start": "npm-run-all --parallel open:src",
+    "open:src": "babel-node buildScripts/srcServer.js",
+    "localtunnel": "lt --port 8000",
+    "share": "npm-run-all --parallel open:src localtunnel"
   },
   "author": "Paul Kayongo",
   "license": "MIT",
